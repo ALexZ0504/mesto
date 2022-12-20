@@ -1,0 +1,10 @@
+.profile__author {
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 950px) {
+  .profile__author {
+    margin-left: 0;
+    margin-top: 26px;
+  }
+}
