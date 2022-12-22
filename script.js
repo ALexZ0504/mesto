@@ -10,7 +10,7 @@ const saveButton = document.querySelector('.popup__save-button');
 
 function edit() {
   popup.style.display = "flex";
-  nameInput.value= nameProfile.textContent;
+  nameInput.value = nameProfile.textContent;
   descriptionInput.value = descriptionProfile.textContent;
 }
 
@@ -18,12 +18,13 @@ function close() {
   popup.style.display = "none";
 }
 
-function submitForm(event) {
-  event.preventDefault();
+function submitForm(e) {
+  e.preventDefault();
   nameProfile.textContent = nameInput.value;
   descriptionProfile.textContent = descriptionInput.value;
+  close();
 }
 
 editButton.addEventListener('click', edit);
 popupExit.addEventListener('click', close);
-saveButton.addEventListener('submit', submitForm);
+form.addEventListener('submit', submitForm);
