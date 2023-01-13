@@ -1,7 +1,7 @@
-.popup__name {
+.popup-create__link {
   width: 358px;
   margin-left: 36px;
-  margin-bottom: 30px;
+  margin-bottom: 48px;
   padding-bottom: 12px;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
@@ -11,8 +11,9 @@
 }
 
 @media screen and (max-width: 700px) {
-  .popup__name {
+  .popup-create__link {
     width: 238px;
     margin-left: 22px;
+    margin-bottom: 45px;
   }
 }

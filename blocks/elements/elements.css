@@ -3,6 +3,7 @@
 @import url(./__image/elements__image.css);
 @import url(./__like-button/elements__like-button.css);
 @import url(./__place/elements__place.css);
+@import url(./__trash/elements__trash.css);
 
 .elements {
   width: 880px;

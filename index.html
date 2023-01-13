@@ -26,7 +26,8 @@
           <button class="profile__add-button" type="button"></button>
         </section>
         <section class="elements">
-          <div class="elements__element">
+          <!-- <div class="elements__element">
+            <button class="elements__trash"></button>
             <img
               class="elements__image"
               alt="Karachaevsk"
@@ -91,7 +92,7 @@
               <h2 class="elements__place">Карачаевск</h2>
               <button class="elements__like-button"></button>
             </div>
-          </div>
+          </div> -->
         </section>
       </div>
       <section class="footer">&COPY 2022 AlexZ</section>
@@ -104,6 +105,35 @@
           <button class="popup__save-button" type="submit">Сохранить</button>
         </form>
       </section>
+      <section class="popup-create">
+        <form class="popup-create__container">
+          <button class="popup-create__exit-button" type="button"></button>
+          <h2 class="popup-create__title">Новое место</h2>
+          <input
+            class="popup-create__place"
+            type="text"
+            placeholder="Название"
+          />
+          <input
+            class="popup-create__link"
+            type="text"
+            placeholder="Ссылка на картинку"
+          />
+          <button class="popup-create__save-button" type="submit">
+            Сохранить
+          </button>
+        </form>
+      </section>
+      <template id="element">
+        <div class="elements__element">
+          <button class="elements__trash" type="button"></button>
+          <img class="elements__image" alt="" src="" />
+          <div class="elements__block">
+            <h2 class="elements__place"></h2>
+            <button class="elements__like-button" type="button"></button>
+          </div>
+        </div>
+      </template>
     </div>
     <script src="/script.js"></script>
   </body>

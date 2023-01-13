@@ -1,0 +1,18 @@
+@import url(./__container/popup-create__container.css);
+@import url(./__save-button/popup-create__save-button.css);
+@import url(./__link/popup-create__link.css);
+@import url(./__place/popup-create__place.css);
+@import url(./__title/popup-create__title.css);
+@import url(./__exit-button/popup-create__exit-button.css);
+
+.popup-create {
+  background-color: rgba(0, 0, 0, .5);
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}

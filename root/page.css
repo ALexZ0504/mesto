@@ -4,12 +4,19 @@
 @import url(/blocks/header/header.css);
 @import url(/blocks/profile/profile.css);
 @import url(/blocks/popup/popup.css);
+@import url(/blocks/popup-create/popup-create.css);
 
 .page {
   background-color: #000000;
   font-family: "Inter", Arial, sans-serif;
 }
 
-/* div, h2, p, img, input, button, form {
+/* div,
+h2,
+p,
+img,
+input,
+button,
+form {
   border: 1px solid red;
 } */
