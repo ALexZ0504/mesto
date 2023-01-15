@@ -9,6 +9,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+  transition: opacity .2s linear;
 }
 
 .popup-create__save-button:hover {

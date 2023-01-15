@@ -1,4 +1,4 @@
-.popup-create__exit-button {
+.popup-photo__exit-button {
   background-image: url(/images/Close\ Icon.svg);
   background-repeat: no-repeat;
   width: 32px;
@@ -11,13 +11,13 @@
   transition: opacity .2s linear;
 }
 
-.popup-create__exit-button:hover {
+.popup-photo__exit-button:hover {
   cursor: pointer;
   opacity: 0.6;
 }
 
 @media screen and (max-width: 700px) {
-  .popup-create__exit-button {
+  .popup-photo__exit-button {
     top: -34px;
     right: 1px;
     width: 20px;

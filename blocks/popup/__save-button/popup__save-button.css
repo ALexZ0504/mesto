@@ -9,11 +9,12 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+  transition: opacity .2s linear;
 }
 
 .popup__save-button:hover {
-  cursor: pointer; 
-  opacity: 0.6; 
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 700px) {

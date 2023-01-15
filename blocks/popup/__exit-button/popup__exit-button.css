@@ -8,11 +8,12 @@
   position: absolute;
   top: -44px;
   right: -44px;
+  transition: opacity .2s linear;
 }
 
-.popup__exit-button:hover { 
-  cursor: pointer; 
-  opacity: 0.6; 
+.popup__exit-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 700px) {

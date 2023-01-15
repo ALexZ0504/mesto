@@ -1,0 +1,16 @@
+@import url(./__container/popup-photo__container.css);
+@import url(./__exit-button/popup-photo__exit-button.css);
+@import url(./__image/popup-photo__image.css);
+@import url(./__place/popup-photo__place.css);
+
+.popup-photo {
+  background-color: rgba(0, 0, 0, .5);
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
