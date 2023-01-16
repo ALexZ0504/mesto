@@ -10,13 +10,13 @@ const descriptionInput = document.querySelector('.popup__description');
 const saveButton = document.querySelector('.popup__save-button');
 
 function edit() {
-  popup.style.display = "flex";
+  popup.classList.toggle('popup_opened');
   nameInput.value = nameProfile.textContent;
   descriptionInput.value = descriptionProfile.textContent;
 }
 
 function close() {
-  popup.style.display = "none";
+  popup.classList.toggle('popup_opened');
 }
 
 function submitForm(e) {
@@ -107,14 +107,13 @@ function addCard(el) {
 
   image.addEventListener('click', function (e) {
     const photo = e.target;
-    popupPhoto.style.display = "flex";
+    popupPhoto.classList.add('popup-photo_opened');
     imagePhoto.src = photo.src;
     placePhoto.textContent = photo.alt;
   });
 
   exitPhoto.addEventListener('click', function (e) {
-    e.preventDefault();
-    popupPhoto.style.display = "none";
+    popupPhoto.classList.remove('popup-photo_opened');
   });
 };
 
@@ -123,11 +122,11 @@ initialCards.forEach(addCard);
 
 // popup добавления места: открыть, закрыть, отправить форму
 function addPlace() {
-  popupCreate.style.display = "flex";
+  popupCreate.classList.toggle('popup-create_opened');
 }
 
 function closePlace() {
-  popupCreate.style.display = "none";
+  popupCreate.classList.toggle('popup-create_opened');
   placeCreate.value = '';
   linkCreate.value = '';
 }
