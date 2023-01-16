@@ -42,6 +42,13 @@ const linkCreate = document.querySelector('.popup-create__link');
 const saveCreate = document.querySelector('.popup-create__save-button');
 const addButton = document.querySelector('.profile__add-button');
 
+// popup открытия картинки с подписью
+const popupPhoto = document.querySelector('.popup-photo');
+const formPhoto = document.querySelector('.popup-photo__container');
+const exitPhoto = document.querySelector('.popup-photo__exit-button');
+const imagePhoto = document.querySelector('.popup-photo__image');
+const placePhoto = document.querySelector('.popup-photo__place');
+
 // массив исходных карточек
 const initialCards = [
   {
@@ -71,52 +78,72 @@ const initialCards = [
 ];
 
 // функция создания template в DOM и добавление на страницу
-const elements = document.querySelector('.elements');
-const template = document.querySelector('#element').content;
-
 function addCard(el) {
+  const elements = document.querySelector('.elements');
+  const template = document.querySelector('#element').content;
   const card = template.querySelector('.elements__element').cloneNode(true);
   const image = card.querySelector('.elements__image');
   const place = card.querySelector('.elements__place');
+  const like = card.querySelector('.elements__like-button');
+  const trash = card.querySelector('.elements__trash');
 
   image.src = el.link;
   image.alt = el.name;
   place.textContent = el.name;
 
-  elements.append(card);
+  like.addEventListener('click', function () {
+    if (like.className === 'elements__like-button') {
+      like.className = 'elements__like-button_active';
+    } else {
+      like.className = 'elements__like-button';
+    }
+  });
+
+  trash.addEventListener('click', function (evt) {
+    evt.target.parentElement.remove();
+  });
+
+  elements.prepend(card);
+
+  image.addEventListener('click', function (e) {
+    const photo = e.target;
+    popupPhoto.style.display = "flex";
+    imagePhoto.src = photo.src;
+    placePhoto.textContent = photo.alt;
+  });
+
+  exitPhoto.addEventListener('click', function (e) {
+    e.preventDefault();
+    popupPhoto.style.display = "none";
+  });
 };
 
 // метод, применяемый к каждому элементу массива
 initialCards.forEach(addCard);
 
-// popup добавления места: открыть, закрыть, отправить форму (в процессе)
+// popup добавления места: открыть, закрыть, отправить форму
 function addPlace() {
   popupCreate.style.display = "flex";
 }
 
 function closePlace() {
   popupCreate.style.display = "none";
+  placeCreate.value = '';
+  linkCreate.value = '';
 }
 
 function create(evt) {
   evt.preventDefault();
 
-  document.querySelector('.elements__place').textContent = placeCreate.value;
-  document.querySelector('.elements__image').src = linkCreate.value;
+  const cardNew = {};
+  cardNew.name = placeCreate.value;
+  cardNew.link = linkCreate.value;
 
-  closePlace();
+  initialCards.unshift(cardNew);
+  addCard(cardNew);
+  closePlace()
 }
 
 addButton.addEventListener('click', addPlace);
 exitCreate.addEventListener('click', closePlace);
 formCreate.addEventListener('submit', create);
-
-// функция лайка
-const like = document.querySelector('.elements__like-button');
-like.addEventListener('click', function (e) {
-  if (like.className === 'elements__like-button') {
-    like.className = 'elements__like-button_active';
-  } else {
-    like.className = 'elements__like-button';
-  }
-});

@@ -11,12 +11,13 @@
 
 @media screen and (max-width: 950px) {
   .footer {
-    width: calc(100% - 38px);
+    width: 584px;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 650px) {
   .footer {
+    width: 282px;
     margin-top: 48px;
     padding-bottom: 36px;
     font-size: 14px;
