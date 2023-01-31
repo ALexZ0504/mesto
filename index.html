@@ -45,8 +45,20 @@
         <form class="popup__container">
           <button class="popup__exit-button" type="button"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__name" type="text" />
-          <input class="popup__description" type="text" />
+          <input
+            class="popup__name"
+            type="text"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <input
+            class="popup__description"
+            type="text"
+            minlength="2"
+            maxlength="200"
+            required
+          />
           <button class="popup__save-button" type="submit">Сохранить</button>
         </form>
       </section>
@@ -58,10 +70,12 @@
             class="popup-create__place"
             type="text"
             placeholder="Название"
+            minlength="2"
+            maxlength="30"
           />
           <input
             class="popup-create__link"
-            type="text"
+            type="url"
             placeholder="Ссылка на картинку"
           />
           <button class="popup-create__save-button" type="submit">
@@ -88,5 +102,6 @@
       </template>
     </div>
     <script src="/script.js"></script>
+    <script src="/validate.js"></script>
   </body>
 </html>

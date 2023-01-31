@@ -29,7 +29,14 @@ function submitForm(e) {
 }
 
 editButton.addEventListener('click', edit);
-popupExit.addEventListener('click', close);
+// popupExit.addEventListener('click', close);
+popup.addEventListener('click', function (event) {
+  if (event.target.classList.contains('popup__exit-button')) {
+    close();
+  } else if (event.target.classList.contains('popup_opened')) {
+    close();
+  }
+});
 form.addEventListener('submit', submitForm);
 
 // popup добавления места
@@ -112,8 +119,15 @@ function addCard(el) {
     placePhoto.textContent = photo.alt;
   });
 
-  exitPhoto.addEventListener('click', function (e) {
-    popupPhoto.classList.remove('popup-photo_opened');
+  // exitPhoto.addEventListener('click', function () {
+  //   popupPhoto.classList.remove('popup-photo_opened');
+  // });
+  popupPhoto.addEventListener('click', function (event) {
+    if (event.target.classList.contains('popup-photo__exit-button')) {
+      popupPhoto.classList.remove('popup-photo_opened');
+    } else if (event.target.classList.contains('popup-photo_opened')) {
+      popupPhoto.classList.remove('popup-photo_opened');
+    }
   });
 };
 
@@ -144,5 +158,12 @@ function create(evt) {
 }
 
 addButton.addEventListener('click', addPlace);
-exitCreate.addEventListener('click', closePlace);
+// exitCreate.addEventListener('click', closePlace);
+popupCreate.addEventListener('click', function (event) {
+  if (event.target.classList.contains('popup-create__exit-button')) {
+    closePlace();
+  } else if (event.target.classList.contains('popup-create_opened')) {
+    closePlace();
+  }
+});
 formCreate.addEventListener('submit', create);
