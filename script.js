@@ -2,46 +2,51 @@
 const editButton = document.querySelector('.profile__edit-button');
 const nameProfile = document.querySelector('.profile__name');
 const descriptionProfile = document.querySelector('.profile__description');
-const popup = document.querySelector('.popup');
-const form = document.querySelector('.popup__container');
+const popupEdit = document.querySelector('.popup-edit');
+const formEdit = document.querySelector('.form-edit');
 const popupExit = document.querySelector('.popup__exit-button');
 const nameInput = document.querySelector('.popup__name');
 const descriptionInput = document.querySelector('.popup__description');
 const saveButton = document.querySelector('.popup__save-button');
 
+// закрытие попапа на клавишу Esc
+function esc(evt) {
+  if (evt.key === 'Escape') {
+    document.querySelector('.popup_opened').classList.remove('popup_opened');
+    document.removeEventListener('keydown', esc);
+  }
+}
+
 function edit() {
-  popup.classList.add('popup_opened');
+  popupEdit.classList.add('popup_opened');
   nameInput.value = nameProfile.textContent;
   descriptionInput.value = descriptionProfile.textContent;
+  document.addEventListener('keydown', esc);
 }
 
 function close() {
-  popup.classList.remove('popup_opened');
+  popupEdit.classList.remove('popup_opened');
 }
 
 function submitForm(e) {
   e.preventDefault();
-
   nameProfile.textContent = nameInput.value;
   descriptionProfile.textContent = descriptionInput.value;
-
   close();
 }
 
 editButton.addEventListener('click', edit);
-// popupExit.addEventListener('click', close);
-popup.addEventListener('mousedown', function (event) {
+popupEdit.addEventListener('mousedown', function (event) {
   if (event.target.classList.contains('popup__exit-button') || event.target.classList.contains('popup_opened')) {
     close();
   }
 });
-form.addEventListener('submit', submitForm);
+formEdit.addEventListener('submit', submitForm);
 
 // popup добавления места
 const popupCreate = document.querySelector('.popup-create');
-const formCreate = document.querySelector('.popup-create__container');
+const formCreate = document.querySelector('.form-create');
 const exitCreate = document.querySelector('.popup-create__exit-button');
-const titleCreate = document.querySelector('.popup-create__title');
 const placeCreate = document.querySelector('.popup-create__place');
 const linkCreate = document.querySelector('.popup-create__link');
 const saveCreate = document.querySelector('.popup-create__save-button');
@@ -112,18 +117,15 @@ function addCard(el) {
 
   image.addEventListener('click', function (e) {
     const photo = e.target;
-    popupPhoto.classList.add('popup-photo_opened');
+    popupPhoto.classList.add('popup_opened');
     imagePhoto.src = photo.src;
     placePhoto.textContent = photo.alt;
+    document.addEventListener('keydown', esc);
   });
 
-  // exitPhoto.addEventListener('click', function () {
-  //   popupPhoto.classList.remove('popup-photo_opened');
-  // });
-
   popupPhoto.addEventListener('mousedown', function (event) {
-    if (event.target.classList.contains('popup-photo__exit-button') || event.target.classList.contains('popup-photo_opened')) {
-      popupPhoto.classList.remove('popup-photo_opened');
+    if (event.target.classList.contains('popup-photo__exit-button') || event.target.classList.contains('popup_opened')) {
+      popupPhoto.classList.remove('popup_opened');
     }
   });
 };
@@ -131,13 +133,13 @@ function addCard(el) {
 // метод, применяемый к каждому элементу массива
 initialCards.forEach(addCard);
 
-// popup добавления места: открыть, закрыть, отправить форму
 function addPlace() {
-  popupCreate.classList.add('popup-create_opened');
+  popupCreate.classList.add('popup_opened');
+  document.addEventListener('keydown', esc);
 }
 
 function closePlace() {
-  popupCreate.classList.remove('popup-create_opened');
+  popupCreate.classList.remove('popup_opened');
   placeCreate.value = '';
   linkCreate.value = '';
 }
@@ -155,17 +157,9 @@ function create(evt) {
 }
 
 addButton.addEventListener('click', addPlace);
-// exitCreate.addEventListener('click', closePlace);
 popupCreate.addEventListener('mousedown', function (event) {
-  if (event.target.classList.contains('popup-create__exit-button') || event.target.classList.contains('popup-create_opened')) {
+  if (event.target.classList.contains('popup-create__exit-button') || event.target.classList.contains('popup_opened')) {
     closePlace();
   }
 });
 formCreate.addEventListener('submit', create);
-// закрытие попапа на клавишу Esc (не сделано закрытие картинки)
-document.addEventListener('keydown', function (evt) {
-  if (evt.key === "Escape") {
-    close();
-    closePlace();
-  }
-})
