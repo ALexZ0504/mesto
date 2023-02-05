@@ -7,7 +7,6 @@ const formEdit = document.querySelector('.form-edit');
 const popupExit = document.querySelector('.popup__exit-button');
 const nameInput = document.querySelector('.popup__name');
 const descriptionInput = document.querySelector('.popup__description');
-const saveButton = document.querySelector('.popup__save-button');
 
 // закрытие попапа на клавишу Esc
 function esc(evt) {
@@ -49,7 +48,6 @@ const formCreate = document.querySelector('.form-create');
 const exitCreate = document.querySelector('.popup-create__exit-button');
 const placeCreate = document.querySelector('.popup-create__place');
 const linkCreate = document.querySelector('.popup-create__link');
-const saveCreate = document.querySelector('.popup-create__save-button');
 const addButton = document.querySelector('.profile__add-button');
 
 // popup открытия картинки с подписью

@@ -26,3 +26,12 @@
     line-height: 17px;
   }
 }
+
+.popup__save-button.popup__save-button_block {
+  color: black;
+  background-color: white;
+  opacity: .2;
+  pointer-events: none;
+  border: 1px solid #000000;
+  transition: opacity .2s linear;
+}

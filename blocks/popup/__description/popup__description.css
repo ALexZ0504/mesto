@@ -1,7 +1,7 @@
 .popup__description {
   width: 358px;
   margin-left: 36px;
-  margin-bottom: 48px;
+  margin-bottom: 5px;
   padding-bottom: 12px;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
@@ -14,10 +14,6 @@
   .popup__description {
     width: 238px;
     margin-left: 22px;
-    margin-bottom: 45px;
+    margin-bottom: 5px;
   }
-}
-
-.popup__description:invalid {
-  border-bottom: 1px solid red;
 }

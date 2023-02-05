@@ -42,47 +42,53 @@
       </div>
       <section class="footer">&COPY 2022 AlexZ</section>
       <section class="popup popup-edit">
-        <form class="popup__container form-edit">
+        <form class="popup__container form-edit" novalidate>
           <button class="popup__exit-button" type="button"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
           <input
-            class="popup__name"
+            id="name-input"
+            class="popup__name popup__input"
             type="text"
             minlength="2"
             maxlength="40"
             required
           />
+          <span class="popup__error name-input-error"></span>
           <input
-            class="popup__description"
+            id="description-input"
+            class="popup__description popup__input"
             type="text"
             minlength="2"
             maxlength="200"
             required
           />
+          <span class="popup__error description-input-error"></span>
           <button class="popup__save-button" type="submit">Сохранить</button>
         </form>
       </section>
       <section class="popup popup-create">
-        <form class="popup__container form-create">
+        <form class="popup__container form-create" novalidate>
           <button class="popup-create__exit-button" type="button"></button>
           <h2 class="popup__title">Новое место</h2>
           <input
-            class="popup-create__place"
+            id="place-input"
+            class="popup-create__place popup__input"
             type="text"
             placeholder="Название"
             minlength="2"
             maxlength="30"
             required
           />
+          <span class="popup__error place-input-error"></span>
           <input
-            class="popup-create__link"
+            id="link-input"
+            class="popup-create__link popup__input"
             type="url"
             placeholder="Ссылка на картинку"
             required
           />
-          <button class="popup-create__save-button" type="submit">
-            Сохранить
-          </button>
+          <span class="popup__error link-input-error"></span>
+          <button class="popup__save-button" type="submit">Сохранить</button>
         </form>
       </section>
       <section class="popup popup-photo">
