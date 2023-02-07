@@ -1,4 +1,4 @@
-// popup редактирования профиля: открытие, закрытие и отправка формы
+// popup редактирования профиля
 const editButton = document.querySelector('.profile__edit-button');
 const nameProfile = document.querySelector('.profile__name');
 const descriptionProfile = document.querySelector('.profile__description');
@@ -16,31 +16,31 @@ function esc(evt) {
   }
 }
 
-function edit() {
-  popupEdit.classList.add('popup_opened');
+// закрытие попапов по клику по оверлэю
+document.addEventListener('click', function (evt) {
+  evt.target.classList.remove('popup_opened');
+  evt.stopPropagation();
+});
+
+function togglePopup(element) {
+  element.classList.toggle('popup_opened');
   nameInput.value = nameProfile.textContent;
   descriptionInput.value = descriptionProfile.textContent;
   document.addEventListener('keydown', esc);
+  placeCreate.value = '';
+  linkCreate.value = '';
   enableValidation();
-}
-
-function close() {
-  popupEdit.classList.remove('popup_opened');
 }
 
 function submitForm(e) {
   e.preventDefault();
   nameProfile.textContent = nameInput.value;
   descriptionProfile.textContent = descriptionInput.value;
-  close();
+  togglePopup(popupEdit);
 }
 
-editButton.addEventListener('click', edit);
-popupEdit.addEventListener('mousedown', function (event) {
-  if (event.target.classList.contains('popup__exit-button') || event.target.classList.contains('popup_opened')) {
-    close();
-  }
-});
+editButton.addEventListener('click', () => togglePopup(popupEdit));
+popupExit.addEventListener('click', () => togglePopup(popupEdit));
 formEdit.addEventListener('submit', submitForm);
 
 // popup добавления места
@@ -116,32 +116,16 @@ function addCard(el) {
 
   image.addEventListener('click', function (e) {
     const photo = e.target;
-    popupPhoto.classList.add('popup_opened');
     imagePhoto.src = photo.src;
     placePhoto.textContent = photo.alt;
-    document.addEventListener('keydown', esc);
-  });
-
-  popupPhoto.addEventListener('mousedown', function (event) {
-    if (event.target.classList.contains('popup-photo__exit-button') || event.target.classList.contains('popup_opened')) {
-      popupPhoto.classList.remove('popup_opened');
-    }
+    togglePopup(popupPhoto);
   });
 };
 
+exitPhoto.addEventListener('click', () => togglePopup(popupPhoto));
+
 // метод, применяемый к каждому элементу массива
 initialCards.forEach(addCard);
-
-function addPlace() {
-  popupCreate.classList.add('popup_opened');
-  document.addEventListener('keydown', esc);
-}
-
-function closePlace() {
-  popupCreate.classList.remove('popup_opened');
-  placeCreate.value = '';
-  linkCreate.value = '';
-}
 
 function create(evt) {
   evt.preventDefault();
@@ -150,15 +134,10 @@ function create(evt) {
   cardNew.name = placeCreate.value;
   cardNew.link = linkCreate.value;
 
-  initialCards.unshift(cardNew);
   addCard(cardNew);
-  closePlace()
+  togglePopup(popupCreate);
 }
 
-addButton.addEventListener('click', addPlace);
-popupCreate.addEventListener('mousedown', function (event) {
-  if (event.target.classList.contains('popup-create__exit-button') || event.target.classList.contains('popup_opened')) {
-    closePlace();
-  }
-});
+addButton.addEventListener('click', () => togglePopup(popupCreate));
+exitCreate.addEventListener('click', () => togglePopup(popupCreate));
 formCreate.addEventListener('submit', create);

@@ -1,11 +1,14 @@
-// const object = {
-//   formSelector: '.popup__container',
+// включение валидации вызовом enableValidation
+// все настройки передаются при вызове
+
+// enableValidation({
+//   formSelector: '.popup__form',
 //   inputSelector: '.popup__input',
-//   submitButtonSelector: '.popup__save-button',
-//   inactiveButtonClass: 'popup__save-button_block',
-//   inputErrorClass: 'popup__input_error',
+//   submitButtonSelector: '.popup__button',
+//   inactiveButtonClass: 'popup__button_disabled',
+//   inputErrorClass: 'popup__input_type_error',
 //   errorClass: 'popup__error_visible'
-// };
+// });
 
 const showInputError = (formElement, formInput, errorMessage) => {
   const error = formElement.querySelector(`.${formInput.id}-error`);
@@ -61,5 +64,3 @@ const enableValidation = () => {
     setEventListeners(formElement);
   });
 };
-
-enableValidation();
