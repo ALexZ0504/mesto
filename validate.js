@@ -1,5 +1,11 @@
-const formElement = document.querySelector('.popup__container');
-const formInput = formElement.querySelector('.popup__input');
+// const object = {
+//   formSelector: '.popup__container',
+//   inputSelector: '.popup__input',
+//   submitButtonSelector: '.popup__save-button',
+//   inactiveButtonClass: 'popup__save-button_block',
+//   inputErrorClass: 'popup__input_error',
+//   errorClass: 'popup__error_visible'
+// };
 
 const showInputError = (formElement, formInput, errorMessage) => {
   const error = formElement.querySelector(`.${formInput.id}-error`);
@@ -23,19 +29,18 @@ const isValid = (formElement, formInput) => {
   }
 };
 
+const hasInvalidInput = (inputList) => {
+  return inputList.some((formInput) => {
+    return !formInput.validity.valid;
+  });
+};
+
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add('popup__save-button_block');
   } else {
     buttonElement.classList.remove('popup__save-button_block');
   }
-};
-
-
-const hasInvalidInput = (inputList) => {
-  return inputList.some((formInput) => {
-    return !formInput.validity.valid;
-  });
 };
 
 const setEventListeners = (formElement) => {

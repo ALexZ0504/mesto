@@ -21,6 +21,7 @@ function edit() {
   nameInput.value = nameProfile.textContent;
   descriptionInput.value = descriptionProfile.textContent;
   document.addEventListener('keydown', esc);
+  enableValidation();
 }
 
 function close() {
