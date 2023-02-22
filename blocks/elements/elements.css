@@ -2,6 +2,7 @@
 @import url(./__block/elements__block.css);
 @import url(./__image/elements__image.css);
 @import url(./__like-button/elements__like-button.css);
+@import url(./__like-button/_active/elements__like-button_active.css);
 @import url(./__place/elements__place.css);
 @import url(./__trash/elements__trash.css);
 
