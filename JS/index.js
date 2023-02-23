@@ -110,10 +110,10 @@ function create(evt) {
 
 function buttonChanging() {
   if (popupEdit.classList.contains('popup-edit')) {
-    saveButton.classList.remove('popup__save_disabled');
+    saveButton.classList.remove('popup__save-button_block');
     saveButton.disabled = false;
   } else if (popupCreate.classList.contains('popup-create')) {
-    saveButton.classList.add('popup__save_disabled');
+    saveButton.classList.add('popup__save-button_block');
     saveButton.disabled = true;
   }
 }
@@ -132,6 +132,5 @@ formCreate.addEventListener('submit', create);
 exitPhoto.addEventListener('click', () => togglePopup(popupPhoto));
 
 addCard();
-buttonChanging();
 
 export { popupPhoto, togglePopup }
