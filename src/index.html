@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./vendor/normalize.css" />
+    <link rel="stylesheet" href="./root/page.css" />
+    <title>Mesto</title>
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <img class="header__logo" alt="Mesto" src="./images/__logo.svg" />
+        <img class="header__line" alt="line" src="./images/Line.png" />
+      </div>
+      <div class="main">
+        <section class="profile">
+          <img class="profile__avatar" alt="Avatar" src="./images/avatar.png" />
+          <div class="profile__info">
+            <div class="profile__author">
+              <h2 class="profile__name">Жак-Ив Кусто</h2>
+              <p class="profile__description">Исследователь океана</p>
+            </div>
+            <button class="profile__edit-button" type="button"></button>
+          </div>
+          <button class="profile__add-button" type="button"></button>
+        </section>
+        <section class="elements">
+          
+        </section>
+      </div>
+      <section class="footer">&COPY 2022 AlexZ</section>
+      <section class="popup popup-edit">
+        <form class="popup__container form-edit" novalidate>
+          <button class="popup__exit-button" type="button"></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input
+            id="name-input"
+            class="popup__name popup__input"
+            type="text"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <span class="popup__error name-input-error"></span>
+          <input
+            id="description-input"
+            class="popup__description popup__input"
+            type="text"
+            minlength="2"
+            maxlength="200"
+            required
+          />
+          <span class="popup__error description-input-error"></span>
+          <button class="popup__save-button" type="submit">Сохранить</button>
+        </form>
+      </section>
+      <section class="popup popup-create">
+        <form class="popup__container form-create" novalidate>
+          <button class="popup-create__exit-button" type="button"></button>
+          <h2 class="popup__title">Новое место</h2>
+          <input
+            id="place-input"
+            class="popup-create__place popup__input"
+            type="text"
+            placeholder="Название"
+            minlength="2"
+            maxlength="30"
+            required
+          />
+          <span class="popup__error place-input-error"></span>
+          <input
+            id="link-input"
+            class="popup-create__link popup__input"
+            type="url"
+            placeholder="Ссылка на картинку"
+            required
+          />
+          <span class="popup__error link-input-error"></span>
+          <button class="popup__save-button" type="submit">Сохранить</button>
+        </form>
+      </section>
+      <section class="popup popup-photo">
+        <form class="popup-photo__container">
+          <button class="popup-photo__exit-button" type="button"></button>
+          <img class="popup-photo__image" src="" alt="" />
+          <p class="popup-photo__place"></p>
+        </form>
+      </section>
+      <template id="element">
+        <div class="elements__element">
+          <button class="elements__trash" type="button"></button>
+          <img class="elements__image" alt="" src="" />
+          <div class="elements__block">
+            <h2 class="elements__place"></h2>
+            <button class="elements__like-button" type="button"></button>
+          </div>
+        </div>
+      </template>
+    </div>
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
